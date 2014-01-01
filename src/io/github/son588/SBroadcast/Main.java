@@ -10,6 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @SuppressWarnings("unused")
@@ -22,19 +23,24 @@ public class Main extends JavaPlugin
 	public ChatColor green = ChatColor.GREEN;
 	public ChatColor white = ChatColor.WHITE;
 	public ChatColor gold = ChatColor.GOLD;
-
+	public String name;
+	
+	
 	public Main()
     {
     }
 
     public void onEnable()
     {
-    	
+    	PluginDescriptionFile p = this.getDescription();
+    	this.saveDefaultConfig();
+    	name = this.getConfig().getString("name");
         getLogger().info("SBroadcast Enabled.");
     }
 
     public void onDisable()
     {
+    	PluginDescriptionFile p = this.getDescription();
         getLogger().info("SBroadcast Enabled.");
     }
 
@@ -49,11 +55,11 @@ public class Main extends JavaPlugin
     		
     		if(args.length < 2) { sender.sendMessage(dark_red + "[SBC] " + gold + "Usage: /bc red|blue|green|white [message]"); return false;}
     		
-    		if(args[0].equalsIgnoreCase("red")){ Bukkit.broadcastMessage(dark_red + "[SBC] " + red + msg); } else
-    		if(args[0].equalsIgnoreCase("blue")){ Bukkit.broadcastMessage(dark_red + "[SBC] " + blue + msg); } else
-    		if(args[0].equalsIgnoreCase("green")){ Bukkit.broadcastMessage(dark_red + "[SBC] " + green + msg); } else
-    		if(args[0].equalsIgnoreCase("white")){ Bukkit.broadcastMessage(dark_red + "[SBC] " + white + msg); }
-    		else { sender.sendMessage(dark_red + "[SBC] " + gold + "Usage: /bc red|blue|green|white [message]"); return false;}
+    		if(args[0].equalsIgnoreCase("red")){ Bukkit.broadcastMessage(dark_red + "[" + name + "] " + red + msg); } else
+    		if(args[0].equalsIgnoreCase("blue")){ Bukkit.broadcastMessage(dark_red + "[" + name + "] " + blue + msg); } else
+    		if(args[0].equalsIgnoreCase("green")){ Bukkit.broadcastMessage(dark_red + "[" + name +"] " + green + msg); } else
+    		if(args[0].equalsIgnoreCase("white")){ Bukkit.broadcastMessage(dark_red + "[" + name + "] " + white + msg); }
+    		else { sender.sendMessage(dark_red + "[" + name + "] " + gold + "Usage: /bc red|blue|green|white [message]"); return false;}
     		
     		return true;
     	}
