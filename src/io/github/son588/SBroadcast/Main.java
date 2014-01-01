@@ -32,7 +32,7 @@ public class Main extends JavaPlugin
 
     public void onDisable()
     {
-        getLogger().info("SBroadcast Enabled.");
+        getLogger().info("SBroadcast Disabled.");
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String args[])
