@@ -1,19 +1,12 @@
 package io.github.son588.SBroadcast;
 
-import java.lang.reflect.Array;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
-@SuppressWarnings("unused")
+
 public class Main extends JavaPlugin
 {
 	
@@ -32,7 +25,6 @@ public class Main extends JavaPlugin
 
     public void onEnable()
     {
-    	PluginDescriptionFile p = this.getDescription();
     	this.saveDefaultConfig();
     	name = this.getConfig().getString("name");
         getLogger().info("SBroadcast Enabled.");
@@ -40,7 +32,6 @@ public class Main extends JavaPlugin
 
     public void onDisable()
     {
-    	PluginDescriptionFile p = this.getDescription();
         getLogger().info("SBroadcast Enabled.");
     }
 
