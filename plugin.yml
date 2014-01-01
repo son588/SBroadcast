@@ -7,9 +7,16 @@ commands:
       description: Broadcast a message!
       permission: sbc.broadcast
       permission-message: You can't broadcast a message. :,( Wish ya could (In a decade)
+   sbc:
+      description: Broadcast a message in white!
+      permission: sbc.sbroadcast
+      permission-message: You can't broadcast a message. ;,( Wish ya could (In a decade)
 
 #Permissions
 permissions:
     sbc.broadcast:
+        description: Allows player to use /bc
+        default: op
+    sbc.sbroadcast:
         description: Allows player to use /sbc
         default: op
