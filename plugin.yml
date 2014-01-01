@@ -1,0 +1,15 @@
+name: SBroadcast
+main: io.github.son588.SBroadcast.Main
+version: 1.0
+#Commands
+commands:
+   bc:
+      description: Broadcast a message!
+      permission: sbc.broadcast
+      permission-message: You don't have <permission>
+
+#Permissions
+permissions:
+    sbc.broadcast:
+        description: Allows player to use /sbc
+        default: op
