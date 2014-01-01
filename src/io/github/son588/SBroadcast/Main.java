@@ -1,5 +1,8 @@
 package io.github.son588.SBroadcast;
 
+import java.lang.reflect.Array;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -12,13 +15,21 @@ import org.bukkit.plugin.java.JavaPlugin;
 @SuppressWarnings("unused")
 public class Main extends JavaPlugin
 {
+	
+	public ChatColor red = ChatColor.RED;
+	public ChatColor dark_red = ChatColor.DARK_RED;
+	public ChatColor blue = ChatColor.BLUE;
+	public ChatColor green = ChatColor.GREEN;
+	public ChatColor white = ChatColor.WHITE;
+	public ChatColor gold = ChatColor.GOLD;
 
-    public Main()
+	public Main()
     {
     }
 
     public void onEnable()
     {
+    	
         getLogger().info("SBroadcast Enabled.");
     }
 
@@ -31,45 +42,20 @@ public class Main extends JavaPlugin
     {
     	String cmdn = cmd.getName();
     	if(cmdn.equalsIgnoreCase("bc")){
-    		if(args.length > 0){
-    			if(args[0].equalsIgnoreCase("red")){
-    				String msg = "";
-    				for (String s : args){
-    					if(!s.contains("red")) { msg = msg + s + " "; }
-    				}
-    				Bukkit.broadcastMessage(ChatColor.DARK_RED + "[SBC] " + ChatColor.RED + msg);
-    				return true;
-    			}
-    		}else if(args.length > 0){
-    			if(args[0].equalsIgnoreCase("blue")){
-    				String msg = "";
-    				for (String s : args){
-    					if(!s.contains("blue")) { msg = msg + s + " "; }
-    				}
-    				Bukkit.broadcastMessage(ChatColor.DARK_RED + "[SBC] " + ChatColor.BLUE + msg);
-    				return true;
-    			}
-    		}else if(args.length > 0){
-    			if(args[0].equalsIgnoreCase("green")){
-    				String msg = "";
-    				for (String s : args){
-    					if(!s.contains("green")) { msg = msg + s + " "; }
-    				}
-    				Bukkit.broadcastMessage(ChatColor.DARK_RED + "[SBC] " + ChatColor.GREEN + msg);
-    				return true;
-    			}
-    		}else if(args.length > 0){
-    			if(args[0].equalsIgnoreCase("white")){
-    				String msg = "";
-    				for (String s : args){
-    					if(!s.contains("white")) { msg = msg + s + " "; }
-    				}
-    				Bukkit.broadcastMessage(ChatColor.DARK_RED + "[SBC] " + ChatColor.WHITE + msg);
-    				return true;
-    			}
-    		}else{
-    			sender.sendMessage(ChatColor.GREEN + "Usage: /bc |red|blue|green|white| [message]");
-    		}
+    		String msg = "";
+    		int count=0;
+    		for (String s : args) { if(count==0){ count=1;
+    		} else { msg = msg + s + " "; } }
+    		
+    		if(args.length < 2) { sender.sendMessage(dark_red + "[SBC] " + gold + "Usage: /bc red|blue|green|white [message]"); return false;}
+    		
+    		if(args[0].equalsIgnoreCase("red")){ Bukkit.broadcastMessage(dark_red + "[SBC] " + red + msg); } else
+    		if(args[0].equalsIgnoreCase("blue")){ Bukkit.broadcastMessage(dark_red + "[SBC] " + blue + msg); } else
+    		if(args[0].equalsIgnoreCase("green")){ Bukkit.broadcastMessage(dark_red + "[SBC] " + green + msg); } else
+    		if(args[0].equalsIgnoreCase("white")){ Bukkit.broadcastMessage(dark_red + "[SBC] " + white + msg); }
+    		else { sender.sendMessage(dark_red + "[SBC] " + gold + "Usage: /bc red|blue|green|white [message]"); return false;}
+    		
+    		return true;
     	}
     		
         return false;
