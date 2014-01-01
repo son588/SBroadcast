@@ -54,6 +54,17 @@ public class Main extends JavaPlugin
     		
     		return true;
     	}
+    	
+    	if(cmdn.equalsIgnoreCase("sbc")){
+    		String msg = "";
+    		int count=0;
+    		for (String s : args) { if(count==0){ count=1;
+    		} else { msg = msg + s + " "; } }
+    		
+    		if(args.length < 1) { sender.sendMessage(dark_red + "[SBC] " + gold + "Usage: /sbc [message]"); return false;}
+    		
+    		if(args.length > 1){ Bukkit.broadcastMessage(dark_red + "[" + Name + "] " + white + msg); }
+    	}
     		
         return false;
     }
