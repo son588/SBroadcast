@@ -6,7 +6,7 @@ commands:
    bc:
       description: Broadcast a message!
       permission: sbc.broadcast
-      permission-message: You don't have <permission>
+      permission-message: You can't broadcast a message. :,( Wish ya could (In a decade)
 
 #Permissions
 permissions:
