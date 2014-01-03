@@ -63,7 +63,7 @@ public class Main extends JavaPlugin
     		
     		if(args.length < 1) { sender.sendMessage(dark_red + "[SBC] " + gold + "Usage: /sbc [message]"); return false;}
     		
-    		if(args.length > 1){ Bukkit.broadcastMessage(dark_red + "[" + name + "] " + white + msg); }
+    		Bukkit.broadcastMessage(dark_red + "[" + name + "] " + white + msg);
     	}
     		
         return false;
